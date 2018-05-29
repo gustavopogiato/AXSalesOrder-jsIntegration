@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Sales Order Service Integration</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <div class="container">
+   		
+        <div class="header">
+            <h1 class="titulo">Sales Order Service</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <form>
+
+                    <div class="form-group">
+                        <label for="endpoint">Service Endpoint</label>
+                        <input type="text" class="form-control" id="endpoint" placeholder="Ex. http://yourserver.com/MicrosoftDynamicsAXAif60/SalesOrderService/xppservice.svc">
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <!-- <div class="col">
+                                <label for="domain">Domain</label>
+                                <input type="text" class="form-control" id="domain">
+                            </div> -->
+        
+                            <div class="col">
+                                <label for="user">User</label>
+                                <input type="text" class="form-control" id="user" placeholder="ex. contoso\admin">
+                            </div>
+                            
+                            <div class="col">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="group">
+                        <h4 class="titulo">Sales Table</h4>
+
+                        <div name="salesTable" class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="custAccount">Customer Account</label>
+                                    <input type="text" class="form-control" id="custAccount">
+                                </div>
+                                <div class="col">
+                                    <label for="purchOrderFormNum">Requisition Number</label>
+                                    <input type="text" class="form-control" id="purchOrderFormNum">
+                                </div>
+                                <div class="col">
+                                    <label for="receiptDate">Receipt Date</label>
+                                    <input type="date" class="form-control" id="receiptDate">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="group">
+                        <h4 class="titulo">Sales Line</h4>
+                        <div name="salesLine" class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="itemId">Item Id</label>
+                                    <input type="text" class="form-control" id="itemId">
+                                </div>
+                                <div class="col">
+                                    <label for="salesQty">Sales Qty</label>
+                                    <input type="number" min="1" class="form-control" id="salesQty">
+                                </div>
+                                <div class="col">
+                                    <label for="salesUnit">Unit Id</label>
+                                    <input type="text" class="form-control" id="salesUnit" placeholder="ex. pcs">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="Button" class="btn btn-outline-primary" id="btnAddItem">Add Item</button>
+
+                        <table id="salesLineTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Item Id</th>
+                                    <th>Sales Qty</th>
+                                    <th>Unit Id</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+                    </section>
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary" id="btnSubmit">Send Sales Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="bootstrap/js/bootstrap.min.js"></script>c-->
+    <script src="js/integration.js"></script>
+    <script src="js/salesLine.js"></script>
+
+  </body>
+</html>
